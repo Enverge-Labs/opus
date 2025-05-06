@@ -1,0 +1,23 @@
+{
+    "Product": {
+        "Visual Aesthetics": 3,
+        "User Experience (ML Engineers)": 1,
+        "Authentication": 2,
+        "Notebooks": 4,
+        "git": 1
+    },
+    "Distribution": {
+        "Education Content": 6,
+        "Presence of Socials": 1,
+        "Open Source Contributions": 1
+    },
+    "Revenue": {},
+    "Partners": {
+        "Voltalia": 4,
+        "Colibri": 1,
+        "Serena": 1
+    },
+    "Team": {
+        "Members": 6
+    }
+}
