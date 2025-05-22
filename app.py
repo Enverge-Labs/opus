@@ -38,39 +38,12 @@ def _():
 
 @app.cell
 def _():
-    dashboard_data = {
-        "product": {
-            "authentication": 2,
-            "aesthetics": 3,
-            "ML engineering UX": 2,
-            "notebooks UX": 11,
-            "git": 2
-        },
-        "distribution": {
-            "educational content": 0,
-            "presence on socials": 1,
-            "open source contributions": 2,
-            "irl events": 1,
-        },
-        "revenue": {
-            "subscriptions": 0,
-            "usage": 0
-        },
-        "partners": {
-            "Voltalia": 4,
-            "Colibri": 1,
-            "Serena": 1
-        },
-        "team": {
-            "members": 6,
-            "advisors": 2
-        },
-        "investment": {
-            "pitches": 5,
-            "accelerators": 2,
-            "signed": 0
-        }
-    }
+    import json
+    from pathlib import Path
+    data_path = Path('./notebooks/dashboard_state.json')
+
+    dashboard_data = json.loads(data_path.read_text())
+    dashboard_data
     return (dashboard_data,)
 
 
