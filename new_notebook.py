@@ -5,6 +5,12 @@ app = marimo.App(width="full")
 
 
 @app.cell
+def _():
+    import marimo as mo
+    return (mo,)
+
+
+@app.cell
 def _(mo):
     mo.md(
         r"""
@@ -17,8 +23,10 @@ def _(mo):
 
 @app.cell
 def _():
-    import marimo as mo
-    return (mo,)
+    import pandas as pd
+    import plotly.express as px
+    import plotly.graph_objects as go
+    return go, pd, px
 
 
 @app.cell
@@ -84,21 +92,17 @@ def _(dashboard_data, go):
 
 
 @app.cell
-def _(dashboard_data):
-    import pandas as pd
-    import plotly.express as px
+def _(dashboard_data, pd):
     areas = []
     for section_key, section_value in dashboard_data.items():
         for area_key, area_value in section_value.items():
             areas.append({"Section": section_key, "Area": area_key, "Value": area_value})
     areas_df = pd.DataFrame(areas)
-    return areas_df, px
+    return (areas_df,)
 
 
 @app.cell
-def _(areas_df, px):
-    import plotly.graph_objects as go
-
+def _(areas_df, go, px):
     unique_sections = areas_df['Section'].unique()
     colors = px.colors.qualitative.Plotly
 
@@ -128,7 +132,7 @@ def _(areas_df, px):
     )
 
     fig
-    return (go,)
+    return
 
 
 if __name__ == "__main__":
