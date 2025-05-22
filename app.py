@@ -18,6 +18,10 @@ def _(mo):
     How can we keep ourselves focused and accountable if we don't know what are we tracking?
 
     This is not exact science, because there are too many variables at stake.
+
+    ## TODO
+
+    - compress the two charts into a single one
     """
     )
     return
