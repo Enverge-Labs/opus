@@ -22,7 +22,7 @@ def _(mo):
     ## TODO
 
     - compress the two charts into a single one, so it's easier to read at a glance
-    - TBD13
+    - TBD12
     """
     )
     return
@@ -43,7 +43,6 @@ def _():
     data_path = Path('./notebooks/dashboard_state.json')
 
     dashboard_data = json.loads(data_path.read_text())
-    dashboard_data
     return (dashboard_data,)
 
 
