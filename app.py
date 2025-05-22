@@ -43,7 +43,7 @@ def _():
             "aesthetics": 3,
             "ML engineering UX": 2,
             "notebooks UX": 11,
-            "git": 1
+            "git": 2
         },
         "distribution": {
             "educational content": 0,
