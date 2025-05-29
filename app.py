@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.13.10"
+__generated_with = "0.13.11"
 app = marimo.App(width="full")
 
 
@@ -18,11 +18,6 @@ def _(mo):
     How can we keep ourselves focused and accountable if we don't know what are we tracking?
 
     This is not exact science, because there are too many variables at stake.
-
-    ## TODO
-
-    - compress the two charts into a single one, so it's easier to read at a glance
-    - TBD15
     """
     )
     return
@@ -40,9 +35,42 @@ def _():
 def _():
     import json
     from pathlib import Path
-    data_path = Path('./notebooks/dashboard_state.json')
+    # data_path = Path('./notebooks/dashboard_state.json')
 
-    dashboard_data = json.loads(data_path.read_text())
+    # dashboard_data = json.loads(data_path.read_text())
+    dashboard_data = {
+        "distribution": {
+            "educational content": 0,
+            "irl events": 1,
+            "open source contributions": 2,
+            "presence on socials": 1
+        },
+        "investment": {
+            "accelerators": 2,
+            "pitches": 5,
+            "signed": 0
+        },
+        "partners": {
+            "Colibri": 1,
+            "Serena": 1,
+            "Voltalia": 4
+        },
+        "product": {
+            "ML engineering UX": 2,
+            "aesthetics": 3,
+            "authentication": 2,
+            "git": 2,
+            "notebooks UX": 11
+        },
+        "revenue": {
+            "subscriptions": 0,
+            "usage": 0
+        },
+        "team": {
+            "advisors": 2,
+            "members": 6
+        }
+    }
     return (dashboard_data,)
 
 
@@ -111,6 +139,19 @@ def _(areas_df, go, px):
     )
 
     fig
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+    ## TODO
+
+    - compress the two charts into a single one, so it's easier to read at a glance
+    - TBD
+    """
+    )
     return
 
 
