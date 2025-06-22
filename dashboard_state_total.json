@@ -1,0 +1,33 @@
+{
+    "distribution": {
+        "educational content": 0,
+        "irl events": 2,
+        "open source contributions": 2,
+        "presence on socials": 1
+    },
+    "investment": {
+        "accelerators": 4,
+        "pitches": 5,
+        "signed": 0
+    },
+    "partners": {
+        "Colibri": 1,
+        "Serena": 1,
+        "Voltalia": 4
+    },
+    "product": {
+        "ML engineering UX": 2,
+        "aesthetics": 3,
+        "authentication": 2,
+        "git": 3,
+        "notebooks UX": 20
+    },
+    "revenue": {
+        "subscriptions": 0,
+        "usage": 0
+    },
+    "team": {
+        "advisors": 3,
+        "members": 6
+    }
+}
