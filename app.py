@@ -1,7 +1,7 @@
 import marimo
 
-__generated_with = "0.13.11"
-app = marimo.App(width="full")
+__generated_with = "0.14.0"
+app = marimo.App(width="medium")
 
 
 @app.cell
@@ -17,7 +17,7 @@ def _(mo):
     # Enverge Overview
     How can we keep ourselves focused and accountable if we don't know what are we tracking?
 
-    This is not exact science, because there are too many variables at stake.
+    This is not exact science, because there are too many variables at play.
     """
     )
     return
@@ -26,6 +26,7 @@ def _(mo):
 @app.cell
 def _():
     import pandas as pd
+
     import plotly.express as px
     import plotly.graph_objects as go
     return go, pd, px
@@ -35,47 +36,13 @@ def _():
 def _():
     import json
     from pathlib import Path
-    # data_path = Path('./notebooks/dashboard_state.json')
-
-    # dashboard_data = json.loads(data_path.read_text())
-    dashboard_data = {
-        "distribution": {
-            "educational content": 0,
-            "irl events": 1,
-            "open source contributions": 2,
-            "presence on socials": 1
-        },
-        "investment": {
-            "accelerators": 2,
-            "pitches": 5,
-            "signed": 0
-        },
-        "partners": {
-            "Colibri": 1,
-            "Serena": 1,
-            "Voltalia": 4
-        },
-        "product": {
-            "ML engineering UX": 2,
-            "aesthetics": 3,
-            "authentication": 2,
-            "git": 2,
-            "notebooks UX": 11
-        },
-        "revenue": {
-            "subscriptions": 0,
-            "usage": 0
-        },
-        "team": {
-            "advisors": 2,
-            "members": 6
-        }
-    }
+    data_path = Path('./dashboard_state_week_23.json')
+    dashboard_data = json.loads(data_path.read_text())["week_23"]
     return (dashboard_data,)
 
 
 @app.cell
-def _(dashboard_data, go):
+def _(dashboard_data, go, mo):
     category_sums = {}
     for category, items in dashboard_data.items():
         category_sums[category] = sum(items.values())
@@ -85,7 +52,7 @@ def _(dashboard_data, go):
         labels=list(category_sums.keys()),
         values=list(category_sums.values()),
         hole=.3,
-        textinfo='label+value'
+        textinfo='label+value',
     )])
 
     fig_piechart.update_layout(
@@ -94,7 +61,11 @@ def _(dashboard_data, go):
         width=800
     )
 
-    fig_piechart
+    # This way of printing plotly charts used to work in the past and should be fixed in marim=0.14.0
+    # but doesn't seem so.
+    # ref: https://github.com/marimo-team/marimo/issues/5326
+    # fig_piechart
+    mo.ui.plotly(fig_piechart)
     return
 
 
@@ -109,7 +80,7 @@ def _(dashboard_data, pd):
 
 
 @app.cell
-def _(areas_df, go, px):
+def _(areas_df, go, mo, px):
     unique_sections = areas_df['Section'].unique()
     colors = px.colors.qualitative.Plotly
 
@@ -138,7 +109,11 @@ def _(areas_df, go, px):
         ),
     )
 
-    fig
+    # This way of printing plotly charts used to work in the past and should be fixed in marim=0.14.0
+    # but doesn't seem so.
+    # ref: https://github.com/marimo-team/marimo/issues/5326
+    # fig
+    mo.ui.plotly(fig)
     return
 
 
