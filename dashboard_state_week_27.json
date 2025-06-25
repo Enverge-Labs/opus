@@ -1,35 +1,35 @@
 {
   "distribution": {
       "educational content": 0,
-      "irl events": 1,
+      "irl events": 0,
       "open source contributions": 0,
-      "presence on socials": 1,
-      "showcase content": 5
+      "presence on socials": 0,
+      "showcase content": 0
   },
   "investment": {
-      "accelerators": 14,
-      "pitches": 3,
+      "accelerators": 0,
+      "pitches": 0,
       "signed": 0
   },
   "partners": {
       "Colibri": 0,
       "Serena": 0,
       "Voltalia": 0,
-      "others": 1
+      "others": 0
   },
   "product": {
       "ML engineering UX": 0,
-      "aesthetics": 2,
-      "authentication": 1,
+      "aesthetics": 0,
+      "authentication": 0,
       "git": 0,
-      "notebooks UX": 17
+      "notebooks UX": 0
   },
   "customers": {
-      "intros": 1,
+      "intros": 0,
       "usage": 0
   },
   "team": {
-      "advisors": 1,
+      "advisors": 0,
       "members": 0
   }
 }
